@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
     });
   });
   
-  app.use('/api', api);
+  app.use('/', api);
 
 module.exports = app;
 
