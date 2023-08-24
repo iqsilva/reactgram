@@ -1,13 +1,10 @@
 const mongoose = require("mongoose")
-const dbUser = process.env.DB_USER
-const dbPassword = process.env.DB_PASS
+const mongoDbUrl = process.env.MONGO_DB_URL
+
 
 const conn = async () => {
     try {
-        const dbConn = await mongoose.connect(
-            `mongodb+srv://${dbUser}:${dbPassword}@cluster0.zu3esg8.mongodb.net/?retryWrites=true&w=majority`
-        );
-
+        const dbConn = await mongoose.connect(mongoDbUrl);
         console.log("Conectou ao banco");
 
         return dbConn
