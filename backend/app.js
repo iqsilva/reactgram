@@ -13,8 +13,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 // solve CORS
-app.use(cors({credentials: true, origin: "https://reactgram-iqsilva.vercel.app"}))
-// app.use(cors({credentials: true, origin: "http://localhost:3000"}))
+// app.use(cors({credentials: true, origin: "https://reactgram-iqsilva.vercel.app"}))
+app.use(cors({credentials: true, origin: "http://localhost:3000"}))
 
 // Upload directory
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")))
