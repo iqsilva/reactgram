@@ -1,10 +1,10 @@
-require("dotenv").config();
-
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
 
-const port = process.env.PORT;
+require("dotenv").config();
+
+const api = require('./api');
 
 const app = express();
 
@@ -13,19 +13,21 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 // solve CORS
-app.use(cors({credentials: true, origin: "http://localhost:3000"}))
+app.use(cors({credentials: true, origin: "https://reactgram-iqsilva.vercel.app"}))
+// app.use(cors({credentials: true, origin: "http://localhost:3000"}))
 
 // Upload directory
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")))
 
+app.get('/', (req, res) => {
+    res.json({
+      message: 'Working',
+    });
+  });
+  
+  app.use('/api', api);
+
+module.exports = app;
+
 // DB connection
 require("./config/db.js")
-
-// routes
-const router = require("./routes/Router.js");
-
-app.use(router);
-
-app.listen(port, () => {
-    console.log(`App rodando na porta ${port}`);
-})
