@@ -19,7 +19,7 @@ const insertPhoto = async (req, res) => {
         userId: user._id,
         userName: user.name,
     });
-
+    console.log("Informações da foto: " + newPhoto);
     // If photo was created successfully, return data
     if (!newPhoto) {
         res.status(422).json({ errors: ["Houve um problema, por favor tente novamente mais tarde."] });
