@@ -70,7 +70,7 @@ const Profile = () => {
         );
 
         formData.append("photo", photoFormData);
-
+        console.log(formData);
         dispatch(publishPhoto(formData));
 
         setTitle("")

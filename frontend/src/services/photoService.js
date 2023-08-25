@@ -3,11 +3,11 @@ import { api, requestConfig } from "../utils/config";
 // Publish an user photo
 const publishPhoto = async (data, token) => {
     const config = requestConfig("POST", data, token, true);
-
+    console.log(data);
     try {
         const res = fetch(api + "/photos", config)
             .then((res) => res.json())
-            .catch((err) => console.log("erro" + err + "data" + data));
+            .catch((err) => console.log(err));
 
         return res;
     } catch (error) {
