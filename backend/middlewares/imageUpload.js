@@ -12,8 +12,8 @@ const imageStorage = multer.diskStorage({
             folder = "photos"
         }
 
-        cb(null, `uploads/${folder}/`)
-        // cb(null, `https://reactgram-api-iqsilva.vercel.app/uploads/${folder}/`)
+        // cb(null, `uploads/${folder}/`)
+        cb(null, `https://reactgram-api-iqsilva.vercel.app/uploads/${folder}/`)
     },
     filename: (req, file, cb) => {
 
